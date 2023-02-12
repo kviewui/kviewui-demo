@@ -1,0 +1,368 @@
+<template>
+	<kui-page>
+		<template v-slot:body>
+			<view class="kui-mt-3">
+				<kui-config-provider font-size="18px" color="#666">
+					<view class="kui-mb-6">
+						<kui-text content="基本使用" />
+						<view class="kui-mt-3">
+							<kui-cell :group="false" :show-right-icon="false">
+								<template v-slot:content>
+									<kui-icons name="like" custom-class="kui-mr-2" :color-level="8" />
+									<kui-icons name="like-filled" :color-level="8" />
+								</template>
+							</kui-cell>
+						</view>
+					</view>
+					<view class="kui-mb-6">
+						<kui-text content="图标颜色" />
+						<view class="kui-mt-3">
+							<kui-cell :group="false" :show-right-icon="false">
+								<template v-slot:content>
+									<kui-icons name="like-filled" color="danger" custom-class="kui-mr-2" />
+									<kui-icons name="appreciate-filled" color="primary" custom-class="kui-mr-2" />
+									<kui-icons name="favor-filled" color="warning" custom-class="kui-mr-2" />
+
+								</template>
+							</kui-cell>
+						</view>
+					</view>
+					<view class="kui-mb-6">
+						<kui-text content="图标大小" />
+						<view class="kui-mt-3">
+							<kui-cell :group="false" :show-right-icon="false">
+								<template v-slot:content>
+									<kui-icons name="favor" :size="20" custom-class="kui-mr-2" />
+									<kui-icons name="favor" :size="25" custom-class="kui-mr-2" />
+									<kui-icons name="favor" :size="30" custom-class="kui-mr-2" />
+								</template>
+							</kui-cell>
+						</view>
+					</view>
+					<view class="kui-mb-6">
+						<kui-text content="图标粗细" />
+						<view class="kui-mt-3">
+							<kui-cell :group="false" :show-right-icon="false">
+								<template v-slot:content>
+									<kui-icons name="like" :weight="100" :color-level="8" custom-class="kui-mr-2" />
+									<kui-icons name="like" :weight="600" :color-level="8" custom-class="kui-mr-2" />
+								</template>
+							</kui-cell>
+						</view>
+					</view>
+					<view class="kui-mb-6">
+						<kui-text content="动态图标" />
+						<view class="kui-mt-3">
+							<kui-cell :group="false" :show-right-icon="false">
+								<template v-slot:content>
+									<kui-animate custom-class="kui-mr-2" name="spin" loop>
+										<kui-icons name="spinner" :weight="100" :color-level="8" />
+									</kui-animate>
+									<kui-animate custom-class="kui-mr-2" name="pulse" loop>
+										<kui-icons name="favor-filled" :weight="100" :color-level="8" />
+									</kui-animate>
+									<kui-animate custom-class="kui-mr-2" name="bounce" loop>
+										<kui-icons name="down" :size="24" :weight="800" :color-level="8" />
+									</kui-animate>
+									<kui-animate custom-class="kui-mr-2" name="heartbeat" loop>
+										<kui-icons name="like-filled" :size="24" :weight="800" :color-level="8" />
+									</kui-animate>
+									<kui-animate custom-class="kui-mr-2" name="shake" loop>
+										<kui-icons name="emoji-filled" :size="24" :weight="800" :color-level="8" />
+									</kui-animate>
+								</template>
+							</kui-cell>
+						</view>
+					</view>
+					<view class="kui-mb-6">
+						<kui-text content="方向展示类" />
+						<view class="kui-mt-3">
+							<view class="kui-w-full kui-bg-white kui-rounded-sm kui-py-2">
+								<view v-for="item in directionType" class="kui-flex kui-flex-row kui-pb-0">
+									<view v-for="val in item"
+										class="kui-flex-1 kui-justify-around kui-items-center kui-py-3">
+										<view class="kui-flex kui-flex-col kui-items-center" @tap="tapedItem(val)">
+											<view>
+												<kui-icons :name="val" :color-level="8" />
+											</view>
+											<view class="kui-flex">
+												<text>{{ val }}</text>
+											</view>
+										</view>
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="kui-mb-6">
+						<kui-text content="提示建议类" />
+						<view class="kui-mt-3">
+							<view class="kui-w-full kui-bg-white kui-rounded-sm kui-py-2">
+								<view v-for="item in tipsType" class="kui-flex kui-flex-row kui-pb-0">
+									<view v-for="val in item"
+										class="kui-flex-1 kui-justify-around kui-items-center kui-py-3">
+										<view class="kui-flex kui-flex-col kui-items-center" @tap="tapedItem(val)">
+											<view>
+												<kui-icons :name="val" :color-level="8" />
+											</view>
+											<view class="kui-flex kui-flex-wrap">
+												<text
+													class="kui-overflow-hidden kui-whitespace-nowrap kui-overflow-ellipsis">{{ val }}</text>
+											</view>
+										</view>
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="kui-mb-6">
+						<kui-text content="交互按钮类" />
+						<view class="kui-mt-3">
+							<view class="kui-w-full kui-bg-white kui-rounded-sm kui-py-2">
+								<view v-for="item in mutualType" class="kui-flex kui-flex-row kui-pb-0">
+									<view v-for="val in item"
+										class="kui-flex-1 kui-justify-around kui-items-center kui-py-3">
+										<view class="kui-flex kui-flex-col kui-items-center" @tap="tapedItem(val)">
+											<view>
+												<kui-icons :name="val" :color-level="8" />
+											</view>
+											<view class="kui-flex kui-flex-wrap">
+												<text
+													class="kui-overflow-hidden kui-whitespace-nowrap kui-overflow-ellipsis">{{ val }}</text>
+											</view>
+										</view>
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="kui-mb-6">
+						<kui-text content="编辑类" />
+						<view class="kui-mt-3">
+							<view class="kui-w-full kui-bg-white kui-rounded-sm kui-py-2">
+								<view v-for="item in editType" class="kui-flex kui-flex-row kui-pb-0">
+									<view v-for="val in item"
+										class="kui-flex-1 kui-justify-around kui-items-center kui-py-3">
+										<view class="kui-flex kui-flex-col kui-items-center" @tap="tapedItem(val)">
+											<view>
+												<kui-icons :name="val" :color-level="8" />
+											</view>
+											<view class="kui-flex kui-flex-wrap">
+												<text
+													class="kui-overflow-hidden kui-whitespace-nowrap kui-overflow-ellipsis">{{ val }}</text>
+											</view>
+										</view>
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="kui-mb-6">
+						<kui-text content="影音类" />
+						<view class="kui-mt-3">
+							<view class="kui-w-full kui-bg-white kui-rounded-sm kui-py-2">
+								<view v-for="item in mediaType" class="kui-flex kui-flex-row kui-pb-0">
+									<view v-for="val in item"
+										class="kui-flex-1 kui-justify-around kui-items-center kui-py-3">
+										<view class="kui-flex kui-flex-col kui-items-center" @tap="tapedItem(val)">
+											<view>
+												<kui-icons :name="val" :color-level="8" />
+											</view>
+											<view class="kui-flex kui-flex-wrap">
+												<text
+													class="kui-overflow-hidden kui-whitespace-nowrap kui-overflow-ellipsis">{{ val }}</text>
+											</view>
+										</view>
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="kui-mb-6">
+						<kui-text content="品牌类" />
+						<view class="kui-mt-3">
+							<view class="kui-w-full kui-bg-white kui-rounded-sm kui-py-2">
+								<view v-for="item in brandsType" class="kui-flex kui-flex-row kui-pb-0">
+									<view v-for="val in item"
+										class="kui-flex-1 kui-justify-around kui-items-center kui-py-3">
+										<view class="kui-flex kui-flex-col kui-items-center" @tap="tapedItem(val)">
+											<view>
+												<kui-icons :name="val" :color-level="8" />
+											</view>
+											<view class="kui-flex kui-flex-wrap">
+												<text
+													class="kui-overflow-hidden kui-whitespace-nowrap kui-overflow-ellipsis">{{ val }}</text>
+											</view>
+										</view>
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="kui-mb-6">
+						<kui-text content="通用类" />
+						<view class="kui-mt-3">
+							<view class="kui-w-full kui-bg-white kui-rounded-sm kui-py-2">
+								<view v-for="item in normalType" class="kui-flex kui-flex-row kui-pb-0">
+									<view v-for="val in item"
+										class="kui-flex-1 kui-justify-around kui-items-center kui-py-3">
+										<view class="kui-flex kui-flex-col kui-items-center" @tap="tapedItem(val)">
+											<view>
+												<kui-icons :name="val" :color-level="8" />
+											</view>
+											<view class="kui-flex kui-flex-wrap">
+												<text
+													class="kui-overflow-hidden kui-whitespace-nowrap kui-overflow-ellipsis">{{ val }}</text>
+											</view>
+										</view>
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="kui-mb-6">
+						<kui-text content="细体类" />
+						<view class="kui-mt-3">
+							<view class="kui-w-full kui-bg-white kui-rounded-sm kui-py-2">
+								<view v-for="item in lightType" class="kui-flex kui-flex-row kui-pb-0">
+									<view v-for="val in item"
+										class="kui-flex-1 kui-justify-around kui-items-center kui-py-3">
+										<view class="kui-flex kui-flex-col kui-items-center" @tap="tapedItem(val)">
+											<view>
+												<kui-icons :name="val" :color-level="8" />
+											</view>
+											<view class="kui-flex kui-flex-wrap">
+												<text
+													class="kui-overflow-hidden kui-whitespace-nowrap kui-overflow-ellipsis">{{ val }}</text>
+											</view>
+										</view>
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+				</kui-config-provider>
+			</view>
+		</template>
+	</kui-page>
+</template>
+
+<script lang="ts" setup>
+	import KuiPage from '@kviewui/kviewui/src/page/index.vue';
+	import KuiConfigProvider from '@kviewui/kviewui/src/config-provider/index.vue';
+	import KuiText from '@kviewui/kviewui/src/text/index.vue';
+	import KuiCell from '@kviewui/kviewui/src/cell/index.vue';
+	import KuiIcons from '@kviewui/kviewui/src/icons/index.vue';
+	import KuiSpace from '@kviewui/kviewui/src/space/index.vue';
+	import KuiAnimate from '@kviewui/kviewui/src/animate/index.vue';
+
+	import {
+		showToast,
+		setCliboardData
+	} from '@kviewui/utils';
+
+	const directionType: Array < Array < string >> = [
+		['back', 'fold', 'circle-pullleft'],
+		['circle-pullright', 'refresharrow', 'circle-down'],
+		['circle-left-filled', 'triangle-down-filled', 'triangle-up-filled'],
+		['pulldown', 'arrow-left-filled', 'back-android'],
+		['arrow-up-filled', 'circle-right-filled', 'unfold'],
+		['right']
+	];
+
+	const tipsType: Array < Array < string >> = [
+		['question-circle', 'circle-close', 'square-check-filled'],
+		['square-check', 'circle-info-filled', 'circle-info'],
+		['check', 'close', 'warn'],
+		['circle-check-filled', 'circle-check', 'circle-close-filled'],
+		['circle-time-filled', 'circle-time', 'warn-filled'],
+		['circle-question-filled', 'square', 'circle']
+	];
+
+	const mutualType: Array < Array < string >> = [
+		['comment-filled', 'comment', 'like-filled'],
+		['like', 'order', 'more'],
+		['scan', 'settings', 'filter'],
+		['top', 'circle-pulldown', 'circle-pullup'],
+		['refresh', 'more-android', 'exit'],
+		['message', 'circle-add-filled', 'circle-add'],
+		['appreciate-filled', 'forward-filled', 'search'],
+		['forward', 'share', 'appreciate'],
+		['eye-filled', 'eye', 'community-filled'],
+		['community', 'radiobox', 'radiobox-filled'],
+		['add', 'move', 'message-filled'],
+		['eye-forbid', 'eye-forbid-filled', 'full'],
+		['circle-record-filled', 'favor-filled', 'favor'],
+		['mark-filled', 'mark', 'return']
+	];
+
+	const editType: Array < Array < string >> = [
+		['code-slash', 'copyright', 'copy-up'],
+		['code', 'paste', 'delete-filled'],
+		['delete', 'sort', 'searchlist'],
+		['copy-down', 'triangle-down-filled', 'triangle-up-filled'],
+		['usefull-filled', 'usefull', 'circle-link-filled'],
+		['edit', 'search', 'searchlist']
+	];
+
+	const mediaType: Array < Array < string >> = [
+		['camera-filled', 'camera', 'notification-filled'],
+		['notification', 'notificationforbid-filled', 'voice'],
+		['voice-filled', 'backward-filled', 'play-filled'],
+		['stop', 'music-filled', 'music-forbid-filled'],
+		['video-filled', 'video', 'play-forward-filled'],
+		['circle-record-filled']
+	];
+
+	const brandsType: Array < Array < string >> = [
+		['circle-wechat-filled', 'circle-facebook-filled', 'apple-filled'],
+		['alipay-filled', 'circle-alipay-filled', 'qq-filled'],
+		['wechat-filled', 'circle-github-filled', 'circle-qq-filled'],
+		['wechat-pay-filled', 'circle-gitee-filled', 'douyin-filled'],
+		['weibo']
+	];
+
+	const normalType: Array < Array < string >> = [
+		['keyboard', 'spinner3', 'spinner9'],
+		['spinner', 'spinner-arrow', 'spiner-solid'],
+		['picture-split-filled', 'iov-pic', 'discover'],
+		['shop-filled', 'pic', 'cart'],
+		['qrcode', 'home', 'cart-filled'],
+		['discover-filled', 'home-filled', 'redpacket'],
+		['lock', 'unlock', 'present'],
+		['location', 'circle-recharge-filled', 'phone'],
+		['circle-recharge', 'wifi', 'mobile'],
+		['mobile-filled', 'notice-filled', 'notice'],
+		['upstage-filled', 'upstage', 'female'],
+		['male', 'apps', 'pic-filled'],
+		['present-filled', 'people-filled', 'people'],
+		['upload', 'my', 'my-filled'],
+		['emoji-filled', 'emoji-flash-filled', 'mail'],
+		['emoji', 'loading', 'location-filled']
+	];
+
+	const lightType: Array < Array < string >> = [
+		['circle-add-light', 'voice-light', 'home-light'],
+		['my-light', 'community-light', 'cart-light'],
+		['cart-filled-light', 'community-filled-light', 'appreciate-filled-light'],
+		['my-filled-light', 'search-light', 'scan-light'],
+		['message-light', 'close-light', 'add-light'],
+		['refresh-light', 'back-light', 'share-light'],
+		['comment-light', 'appreciate-light', 'favor-light'],
+		['more-android-light', 'more-light', 'video-light'],
+		['message-filled-light', 'video-light', 'favor-filled-light'],
+		['delete-light', 'back-android-light', 'down-light'],
+		['circle-close-light', 'circle-close-filled-light', 'location-light'],
+		['eye-light', 'circle-down-light', 'warn-light'],
+		['oppose-filled-light', 'oppose-light', 'comment-filled-light']
+	];
+
+	const tapedItem = (val: string) => {
+		setCliboardData(val, false);
+		showToast(`复制成功：${val}`, 'none');
+	}
+</script>
+
+<style>
+
+</style>

@@ -1,0 +1,88 @@
+<template>
+	<kui-page :custom-header="false">
+		<template v-slot:body>
+			<kui-config-provider font-size="18px" color="#666">
+				<view class="kui-mt-3">
+					<kui-text content="基本用法" />
+					<view class="kui-mt-2">
+						<kui-cell :group="false" title="这是标题" desc="这是描述内容" :show-right-icon="false"></kui-cell>
+					</view>
+					<view class="kui-mt-2">
+						<kui-cell :group="false" title="这是标题" sub-title="这是副标题" desc="这是描述内容" :show-right-icon="false"></kui-cell>
+					</view>
+					<view class="kui-mt-2">
+						<kui-cell :group="false" title="圆角大小 0" :radius="0" :show-right-icon="false"></kui-cell>
+					</view>
+				</view>
+				<view class="kui-mt-3">
+					<kui-text content="使用插槽" />
+					<view class="kui-mt-2">
+						<kui-cell :group="false" title="测试标题" :show-right-icon="false">
+							<template v-slot:content>
+								<kui-text content="内容插槽示例" color="primary" />
+							</template>
+						</kui-cell>
+					</view>
+					<view class="kui-mt-2">
+						<kui-cell :group="false" title="右边图标插槽示例">
+							<template v-slot:right-icon>
+								<kui-icons name="like-filled" color="red" :size="24"></kui-icons>
+							</template>
+						</kui-cell>
+					</view>
+					<view class="kui-mt-3">
+						<kui-cell-group title="链接 | 分组 | 常规布局" desc="分组描述内容">
+							<kui-cell title="路由跳转" url="/pages/index/index"></kui-cell>
+							<kui-cell title="链接 官网" url="http://www.kviewui.com"></kui-cell>
+						</kui-cell-group>
+					</view>
+					<view class="kui-mt-3">
+						<kui-cell-group title="链接 | 分组 | 间隔布局" desc="分组描述内容" type="space">
+							<kui-cell title="路由跳转" url="/pages/index/index"></kui-cell>
+							<kui-cell title="链接 官网" url="http://www.kviewui.com"></kui-cell>
+						</kui-cell-group>
+					</view>
+					<view class="kui-mt-2">
+						<kui-text content="自定义左侧图标" />
+						<view class="kui-mt-2">
+							<kui-cell :group="false" title="自定义图标" :show-right-icon="false">
+								<template v-slot:left-icon>
+									<kui-icons custom-class="kui-mr-1" name="circle-like-filled" color="warning" :size="30" />
+								</template>
+							</kui-cell>
+						</view>
+					</view>
+					<view class="kui-mt-2">
+						<kui-text content="展示图标" />
+						<view class="kui-mt-2">
+							<kui-cell :group="false" title="标题" desc="描述内容" icon="people-filled">
+							</kui-cell>
+						</view>
+					</view>
+					<view class="kui-mt-2">
+						<kui-text content="垂直居中" />
+						<view class="kui-mt-2">
+							<kui-cell :group="false" title="标题" sub-title="副标题" desc="描述内容" center>
+							</kui-cell>
+						</view>
+					</view>
+				</view>
+			</kui-config-provider>
+		</template>
+	</kui-page>
+</template>
+
+<script lang="ts" setup>
+	import KuiPage from '@kviewui/kviewui/src/page/index.vue';
+	import KuiConfigProvider from '@kviewui/kviewui/src/config-provider/index.vue';
+	import KuiText from '@kviewui/kviewui/src/text/index.vue';
+	import KuiCellGroup from '@kviewui/kviewui/src/cell-group/index.vue';
+	import KuiCell from '@kviewui/kviewui/src/cell/index.vue';
+	import KuiIcons from '@kviewui/kviewui/src/icons/index.vue';
+	
+	import { colorBuilder } from '@kviewui/color-builder';
+</script>
+
+<style>
+
+</style>

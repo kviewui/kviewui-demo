@@ -1,0 +1,93 @@
+<template>
+	<kui-page :custom-header="false">
+		<template v-slot:body>
+			<view class="kui-mt-3">
+				<kui-config-provider font-size="18px" color="#666">
+					<view>
+						<kui-text content="基本使用" />
+						<view class="kui-mt-3">
+							<kui-image :src="src" />
+						</view>
+					</view>
+					<view class="kui-mt-3">
+						<kui-text content="填充模式【设置填充模式，宽高将失效】" />
+						<view class="kui-mt-2">
+							<template v-for="(item, index) in fillList" :key="index">
+								<view class="kui-w-full">
+									<view class="kui-flex kui-flex-col kui-mb-3">
+										<kui-image :src="src" :fit="item" />
+										<view class="kui-text-center">
+											<kui-text :content="item" />
+										</view>
+									</view>
+								</view>
+							</template>
+						</view>
+					</view>
+					<view class="kui-mt-3">
+						<kui-text content="设置圆角" />
+						<view class="kui-mt-2 kui-flex">
+							<kui-image custom-class="kui-mr-3" width="200rpx" height="200rpx" :radius="30" :src="src" />
+							<kui-image width="200rpx" height="200rpx" :radius="300" :src="src" />
+						</view>
+					</view>
+					<view class="kui-mt-3">
+						<kui-text content="加载失败" />
+						<view class="kui-mt-3">
+							<kui-image :src="src" error height="200px" :radius="30" />
+						</view>
+					</view>
+					<view class="kui-mt-3">
+						<kui-text content="点击事件" />
+						<view class="kui-mt-2">
+							<kui-space :gap="[20,20]">
+								<kui-image width="440rpx" height="440rpx" :radius="30" :src="src" @click="onClick" />
+							</kui-space>
+						</view>
+					</view>
+					<view class="kui-mt-3">
+						<kui-text content="图片预览" />
+						<view class="kui-mt-2">
+							<kui-space :gap="[20,20]">
+								<kui-image width="440rpx" height="440rpx" :radius="30" :src="src" preview @click="onClick" />
+							</kui-space>
+						</view>
+					</view>
+					<view class="kui-mt-3">
+						<kui-text content="懒加载" />
+						<view class="kui-mt-3">
+							<template v-for="i in 10" :key="i">
+								<kui-image custom-class="kui-mb-3" :src="src" height="200px" :radius="30" lazyload />
+							</template>
+						</view>
+					</view>
+				</kui-config-provider>
+			</view>
+		</template>
+	</kui-page>
+</template>
+
+<script lang="ts" setup>
+	import KuiPage from '@kviewui/kviewui/src/page/index.vue';
+	import KuiConfigProvider from '@kviewui/kviewui/src/config-provider/index.vue';
+	import KuiText from '@kviewui/kviewui/src/text/index.vue';
+	import KuiImage from '@kviewui/kviewui/src/image/index.vue';
+	import KuiSpace from '@kviewui/kviewui/src/space/index.vue';
+	
+	const src = 'https://www.kviewui.com/images/squirrel.png';
+	
+	const fillList = [
+		'aspectFill',
+		'heightFix'
+	];
+	
+	const onClick = () => {
+		uni.showToast({
+			title: '图片被点击'
+		});
+	}
+</script>
+
+<style>
+
+</style>
