@@ -27,6 +27,11 @@
 				"navigationBarTitleText": "Icon 图标"
 			}
 		}, {
+			"path": "pages/components/tag/index",
+			"style": {
+				"navigationBarTitleText": "Tag 标签"
+			}
+		}, {
             "path": "pages/test/button",
             "style": {
                 "navigationBarTitleText": "Button 按钮"

@@ -8,8 +8,6 @@
                         content="基于UNI-APP框架的多端开发UI组件库，让您的开发效率加倍提升" />
                 </view>
 				
-				<kui-icons custom-class="kui-animate-pulse kui-animate-loop" name="loading" />
-
                 <kui-container width="750rpx" background-color="#F8F8F8" top-left-radius="60rpx"
                     top-right-radius="60rpx" :custom-style="{
                         padding: '0 20px',
@@ -25,7 +23,7 @@
                             <kui-cell title="Cell 单元格" url="/pages/components/cell/index" />
                             <kui-cell title="Image 图片" url="/pages/components/image/index" />
                             <kui-cell title="Icon 图标" url="/pages/components/icons/index" />
-                            <kui-cell title="Tag 标签" url="/pages/components/tag/tag" />
+                            <kui-cell title="Tag 标签" url="/pages/components/tag/index" />
                             <kui-cell title="Badge 徽标" url="/pages/components/badge/badge" />
                         </kui-cell-group>
                         <kui-cell-group title="布局组件" type="space" :cell-title-weight="600" :cell-radius="100">
